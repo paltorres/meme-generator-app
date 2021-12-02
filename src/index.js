@@ -16,6 +16,14 @@ const app = new App({
         res.end('Health check information displayed here!');
       },
     },
+    {
+      path: '/memes',
+      method: ['GET'],
+      handler: (req, res) => {
+        res.writeHead(200);
+        res.end([]);
+      }
+    }
   ],
 });
 
