@@ -5,11 +5,13 @@
   "repository": "git@github.com:paltorres/meme-generator-app.git",
   "license": "MIT",
   "scripts": {
-    "dev": "node ./src/index.js"
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js"
   },
   "dependencies": {
+    "@slack/bolt": "^3.8.1",
     "axios": "^0.24.0",
     "dotenv": "^10.0.0",
-    "express": "^4.17.1"
+    "nodemon": "^2.0.15"
   }
 }
