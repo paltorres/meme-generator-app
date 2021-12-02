@@ -9,9 +9,10 @@ const { Modal, Blocks, Elements } = require('slack-block-builder');
 
 module.exports = () => ({
 	"type": "modal",
+	"callback_id": "create-meme",
 	"title": {
 		"type": "plain_text",
-		"text": "My App",
+		"text": "Generate a meme",
 		"emoji": true
 	},
 	"submit": {
@@ -29,11 +30,11 @@ module.exports = () => ({
 			"type": "input",
 			"element": {
 				"type": "plain_text_input",
-				"action_id": "plain_text_input-action"
+				"action_id": "search-meme",
 			},
 			"label": {
 				"type": "plain_text",
-				"text": "Imagen",
+				"text": "Search Image",
 				"emoji": true
 			}
 		},
@@ -52,11 +53,11 @@ module.exports = () => ({
 			"type": "input",
 			"element": {
 				"type": "plain_text_input",
-				"action_id": "plain_text_input-action"
+				"action_id": "top-text",
 			},
 			"label": {
 				"type": "plain_text",
-				"text": "texto 1",
+				"text": "Top Text",
 				"emoji": true
 			}
 		},
@@ -64,11 +65,11 @@ module.exports = () => ({
 			"type": "input",
 			"element": {
 				"type": "plain_text_input",
-				"action_id": "plain_text_input-action"
+				"action_id": "bottom-text",
 			},
 			"label": {
 				"type": "plain_text",
-				"text": "Texto 2",
+				"text": "Bottom Text",
 				"emoji": true
 			}
 		}
