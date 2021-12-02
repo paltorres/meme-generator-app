@@ -1,5 +1,5 @@
-const { appHomeOpenedCallback } = require('./search-for-memes');
+const { createMemeCallback } = require('./create-meme');
 
 module.exports.register = (app) => {
-  app.command('meme-generator', appHomeOpenedCallback);
+  app.command('meme-generator', createMemeCallback);
 };
