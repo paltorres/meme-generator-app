@@ -1,18 +1,19 @@
 require('dotenv').config();
 
-const { App } = require('@slack/bolt');
+const { App, LogLevel } = require('@slack/bolt');
 const { registerListeners } = require('./listeners');
 const { getRoutes } = require('./routes');
 
 // Initialize Bolt app, using the default HTTPReceiver
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
-  signingSecret: process.env.SLACK_SIGNING_SECRET,
+  socketMode: true,
+  appToken: process.env.SLACK_APP_TOKEN,
+  logLevel: LogLevel.DEBUG,
   customRoutes: getRoutes()
 });
 
 registerListeners(app);
-
 
 app.event('app_home_opened', async ({ event, context, payload }) => {
   // Display App Home
@@ -96,8 +97,17 @@ app.event('app_home_opened', async ({ event, context, payload }) => {
   }
   
 });
+
+app.error((error) => {
+  console.error(error);
+});
+
 (async () => {
   let port = process.env.PORT || 4001;
-  await app.start(port);
-  console.log('⚡️ Bolt app started in port: ' + port);
+  try {
+    await app.start(port);
+    console.log('⚡️ Bolt app started in port: ' + port);
+  } catch (error) {
+    console.error(error);
+  }
 })();
