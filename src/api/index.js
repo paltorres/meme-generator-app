@@ -21,7 +21,15 @@ class MemeApi {
     });
     return imgUrl;
   };  
+  async getFirstMeme({querySearch, text0, text1}) {
+    const memes = await this.getMemes({querySearch});
 
+    const url = await this.generateMeme({
+      template_id:memes[0].id, 
+      text0, text1 
+    })
+    return url;
+  }
   _filterSafeForWork(memeList) {
     return memeList.filter(meme => meme.safe_for_work === 'yes');
   }
