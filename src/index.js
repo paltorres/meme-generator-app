@@ -23,6 +23,14 @@ const app = new App({
         res.writeHead(200);
         res.end([]);
       }
+    },
+    {
+      path: '/generate-meme',
+      method: ['POST'],
+      handler: (req, res) => {
+        res.writeHead(200);
+        res.end([]);
+      }
     }
   ],
 });
