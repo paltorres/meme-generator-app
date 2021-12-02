@@ -17,8 +17,15 @@ class MemeApi {
     return [];
   }
 
-  generateMeme() {
-    return null
+  async generateMeme({template_id, text0, text1 }) {
+    const imgflip = new Imgflip({
+      username: process.env.IMGFLIP_API_USERNAME,
+      password: process.env.IMGFLIP_API_PASSWORD
+    });
+    const imgUrl = await imgflip.meme(template_id, {
+      captions: [text0, text1]
+    });
+    return imgUrl;
   };  
 
   _filterSafeForWork(memeList) {
