@@ -1,0 +1,15 @@
+{
+  "name": "meme-generator-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:paltorres/meme-generator-app.git",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node ./src/index.js"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
+}
