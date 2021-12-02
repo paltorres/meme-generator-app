@@ -1,5 +1,5 @@
-const { createMemeCallback } = require('./create-meme');
+const { modalFormMemeCallback } = require('./create-meme');
 
 module.exports.register = (app) => {
-  app.command('/meme-generator', createMemeCallback);
+  app.command('/meme-generator', modalFormMemeCallback);
 };
