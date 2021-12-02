@@ -1,20 +1,18 @@
+const axios = require('axios');
 const Imgflip = require('imgflip');
 
 const imgflipClient = new Imgflip({
   username: process.env.IMGFLIP_API_USERNAME,
   password: process.env.IMGFLIP_API_PASSWORD,
 });
+const IMGFLIP_AJAX_URL = 'https://imgflip.com';
 
 class MemeApi {
   async getMemes({ querySearch }) {
-    // get memes response
-    const responseData = [];
+    const response = await axios.get(`${IMGFLIP_AJAX_URL}/ajax_meme_search_new`, { params: { q: querySearch }});
+    const memes = response.data.results || [];
 
-    if (responseData.results) {
-      return this._filterSafeForWork(responseData.results);
-    }
-
-    return [];
+    return this._filterSafeForWork(memes);
   }
 
   async generateMeme({template_id, text0, text1 }) {
