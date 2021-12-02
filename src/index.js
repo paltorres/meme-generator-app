@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const { App } = require('@slack/bolt');
 const { registerListeners } = require('./listeners');
+const memeApi = require('./api');
 
 // Initialize Bolt app, using the default HTTPReceiver
 const app = new App({
@@ -19,9 +20,12 @@ const app = new App({
     {
       path: '/memes',
       method: ['GET'],
-      handler: (req, res) => {
+      handler: async (req, res) => {
+        const querySearch = req.params.q || '';
+        const memes = await memeApi.getMemes({ querySearch });
+
         res.writeHead(200);
-        res.end([]);
+        res.end(memes);
       }
     }
   ],
