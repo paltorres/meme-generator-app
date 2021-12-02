@@ -22,10 +22,13 @@ class MemeApi {
     return imgUrl;
   };  
   async getFirstMeme({querySearch, text0, text1}) {
+    console.log('getFirstMeme', querySearch, text0, text1);
     const memes = await this.getMemes({querySearch});
 
+    console.log('memes', memes);
+
     const url = await this.generateMeme({
-      template_id:memes[0].id, 
+      template_id: memes[0].id, 
       text0, text1 
     })
     return url;
