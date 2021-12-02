@@ -30,7 +30,7 @@ module.exports = () => ({
 			"type": "input",
 			"element": {
 				"type": "plain_text_input",
-				"action_id": "search-meme",
+				"action_id": "search_meme",
 			},
 			"label": {
 				"type": "plain_text",
@@ -53,7 +53,7 @@ module.exports = () => ({
 			"type": "input",
 			"element": {
 				"type": "plain_text_input",
-				"action_id": "top-text",
+				"action_id": "top_text",
 			},
 			"label": {
 				"type": "plain_text",
@@ -65,7 +65,7 @@ module.exports = () => ({
 			"type": "input",
 			"element": {
 				"type": "plain_text_input",
-				"action_id": "bottom-text",
+				"action_id": "bottom_text",
 			},
 			"label": {
 				"type": "plain_text",
